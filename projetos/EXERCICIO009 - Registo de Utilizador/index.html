@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registo - Exercício 009</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>Registo de Utilizador</h1>
+            <p class="subtitle">Preencha os dados abaixo</p>
+
+            <!-- Campos do Formulário -->
+            <div class="form-group">
+                <div class="campo">
+                    <label for="nome"> Nome</label>
+                    <input type="text" id="nome" placeholder="Escerva seu nome">
+                </div>
+
+                <div class="campo">
+                    <label for="idade"> Idade</label>
+                    <input type="number" id="idade" placeholder="Sua idade" min="0">
+                </div>
+
+                <div class="campo">
+                    <label for="curso">Curso</label>
+                    <input type="text" id="curso" placeholder="Seu curso">
+                </div>
+
+                <div class="campo">
+                    <label for="escola"> Escola</label>
+                    <input type="text" id="escola" placeholder="Ex: IEFP">
+                </div>
+            </div>
+
+            <!-- Botão -->
+            <button id="registar"> Registar </button>
+
+            <!-- Mensagem de Erro -->
+            <div id="erro" class="erro"></div>
+
+            <!-- Área de Resultados -->
+            <div id="resultado" class="resultado-area">
+                <div class="resultado-header">
+                    <span> Dados do Utilizador</span>
+                </div>
+                
+                <div class="dados-grid">
+                    <div class="dado-item">
+                        <span class="dado-label"> Nome</span>
+                        <span id="displayNome" class="dado-valor">Aguardando...</span>
+                    </div>
+                    
+                    <div class="dado-item">
+                        <span class="dado-label"> Idade</span>
+                        <span id="displayIdade" class="dado-valor">Aguardando...</span>
+                    </div>
+                    
+                    <div class="dado-item">
+                        <span class="dado-label"> Curso</span>
+                        <span id="displayCurso" class="dado-valor">Aguardando...</span>
+                    </div>
+                    
+                    <div class="dado-item">
+                        <span class="dado-label"> Escola</span>
+                        <span id="displayEscola" class="dado-valor">Aguardando...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

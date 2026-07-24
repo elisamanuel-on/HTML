@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breakpoints - Exercício 019</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Breakpoints</h1>
+            <p class="subtitle">Redimensione a janela para ver as mudanças</p>
+        </header>
+
+        <!-- Menu de Navegação -->
+        <nav class="menu">
+            <a href="#">🏠 Início</a>
+            <a href="#">🛠️ Serviços</a>
+            <a href="#">📞 Contacto</a>
+        </nav>
+
+        <!-- Cards -->
+        <section class="cards">
+            <div class="card card-1">
+                <div class="card-icon"> </div>
+                <h3>Card 1</h3>
+                <p>Conteúdo do primeiro card</p>
+            </div>
+            <div class="card card-2">
+                <div class="card-icon"> </div>
+                <h3>Card 2</h3>
+                <p>Conteúdo do segundo card</p>
+            </div>
+            <div class="card card-3">
+                <div class="card-icon"> </div>
+                <h3>Card 3</h3>
+                <p>Conteúdo do terceiro card</p>
+            </div>
+        </section>
+
+        <!-- Indicador de Breakpoint Atual -->
+        <div class="breakpoint-indicator">
+            <span class="breakpoint-label">📊 Breakpoint Atual:</span>
+            <span id="breakpointAtual" class="breakpoint-valor">Desktop</span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

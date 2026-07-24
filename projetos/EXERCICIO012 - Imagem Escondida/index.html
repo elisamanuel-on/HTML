@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imagem Escondida - Exercício 012</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>🕵️ Imagem Escondida</h1>
+            <p class="subtitle">Passa o rato sobre a área para revelar a imagem</p>
+
+            <!-- Área onde a imagem está escondida -->
+            <div id="areaImagem" class="area-imagem">
+                <div class="imagem-wrapper">
+                    <img id="imagemRevelar" src="WhatsApp Image 2026-05-06 at 16.23.35.jpeg" alt="Imagem revelada" class="imagem-revelar">
+                </div>
+                <div class="texto-overlay">
+                    <span class="icone-overlay">🔍</span>
+                    <p>Passe o rato aqui para revelar a imagem</p>
+                    <span class="seta">👇</span>
+                </div>
+            </div>
+
+            <!-- Mensagem de estado -->
+            <div id="estado" class="estado">
+                <span id="estadoTexto">🔴 Imagem escondida</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

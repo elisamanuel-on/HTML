@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Números Primos - Exercício 017</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1> Números Primos</h1>
+            <p class="subtitle">Digite um número e veja todos os primos até ele</p>
+
+            <!-- Input e Botão -->
+            <div class="input-group">
+                <input type="number" id="numeroInput" placeholder="Insira o número" min="2">
+                <button id="calcularBtn">Ver Primos</button>
+            </div>
+
+            <!-- Botão Limpar -->
+            <button id="limparBtn" class="btn-limpar">🧹 Limpar</button>
+
+            <!-- Mensagem de Erro -->
+            <div id="erro" class="erro"></div>
+
+            <!-- Resultados -->
+            <div id="resultados" class="resultados-area">
+                <!-- Número Analisado -->
+                <div class="resultado-item numero-analisado">
+                    <span class="resultado-icon"> </span>
+                    <div class="resultado-conteudo">
+                        <h3>Número Analisado</h3>
+                        <p id="numeroAnalisado">Aguardando número...</p>
+                    </div>
+                </div>
+
+                <!-- Status (primo ou não) -->
+                <div class="resultado-item status-primo">
+                    <span class="resultado-icon"> </span>
+                    <div class="resultado-conteudo">
+                        <h3>Status</h3>
+                        <p id="statusPrimo">Aguardando número...</p>
+                    </div>
+                </div>
+
+                <!-- Lista de Primos -->
+                <div class="resultado-item lista-primos">
+                    <span class="resultado-icon"> </span>
+                    <div class="resultado-conteudo">
+                        <h3>Números Primos Encontrados</h3>
+                        <div id="listaPrimos" class="lista-primos-container">
+                            <span style="color: #4a5568;">Aguardando número...</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Resumo -->
+                <div class="resultado-item resumo">
+                    <span class="resultado-icon"> </span>
+                    <div class="resultado-conteudo">
+                        <h3>Resumo</h3>
+                        <p id="resumoPrimos">Aguardando número...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

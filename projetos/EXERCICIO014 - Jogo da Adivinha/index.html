@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Adivinha - Exercício 014</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>🎯 Jogo da Adivinha</h1>
+            <p class="subtitle">Tente adivinhar o número entre <strong>1 e 50</strong></p>
+
+            <!-- Status do Jogo -->
+            <div class="status">
+                <div class="status-item">
+                    <span class="status-label"> Número Secreto</span>
+                    <span id="numeroSecreto" class="status-valor">???</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-label"> Tentativas</span>
+                    <span id="tentativas" class="status-valor">0</span>
+                </div>
+            </div>
+
+            <!-- Área de Input -->
+            <div class="input-group">
+                <input type="number" id="palpite" placeholder="Digite um número (1-50)" min="1" max="50">
+                <button id="adivinharBtn">Adivinhar</button>
+            </div>
+
+            <!-- Botão Reiniciar -->
+            <button id="reiniciarBtn" class="btn-reiniciar">Novo Jogo</button>
+
+            <!-- Mensagem de Erro -->
+            <div id="erro" class="erro"></div>
+
+            <!-- Dica -->
+            <div id="dica" class="dica">
+                <span class="dica-icone"> </span>
+                <span id="dicaTexto">Digite um número e tente adivinhar!</span>
+            </div>
+
+            <!-- Histórico de Tentativas -->
+            <div id="historico" class="historico">
+                <h3> Histórico de Tentativas</h3>
+                <div id="listaTentativas" class="lista-tentativas">
+                    <span style="color: #4a5568;">Nenhuma tentativa ainda...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

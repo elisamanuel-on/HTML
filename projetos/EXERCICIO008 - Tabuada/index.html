@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuada - Exercício 008</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>📐 Tabuada da Elisama</h1>
+            <p class="subtitle">Digite um número e veja sua tabuada</p>
+
+            <div class="input-group">
+                <input type="number" id="numero" placeholder="Ex: 7" min="0">
+                <button id="calcular">Calcular</button>
+            </div>
+
+            <div id="erro" class="erro"></div>
+
+            <div id="resultado">
+                <div class="tabuada-header">
+                    <span>Tabuada do <strong id="numTabuada">?</strong></span>
+                </div>
+                <div id="tabuadaLista" class="tabuada-lista">
+                    <span style="color: #4a5568;">Aguardando número...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
