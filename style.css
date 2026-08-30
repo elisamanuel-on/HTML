@@ -16,43 +16,43 @@
     --cor-sombra: rgba(102, 126, 234, 0.15);
     --cor-placeholder: #4a5568;
     
-    --cor-email: #667eea;
-    --cor-telefone: #48bb78;
-    --cor-localizacao: #f6ad55;
-    --cor-linkedin: #0a66c2;
-    --cor-instagram: #e1306c;
-    --cor-github: #8b8b8b;
-    
-    --cor-primaria: #667eea;
-    --cor-secundaria: #764ba2;
-    --cor-destaque: #48bb78;
-    --cor-aviso: #fc8181;
-    
+    --cor-email: #33ff66;
+    --cor-telefone: #ffb000;
+    --cor-localizacao: #33ff66;
+    --cor-linkedin: #ffb000;
+    --cor-instagram: #33ff66;
+    --cor-github: #ffb000;
+
+    --cor-primaria: #2ecc55;
+    --cor-secundaria: #ffb000;
+    --cor-destaque: #33ff66;
+    --cor-aviso: #ff5f56;
+
     --raio-borda: 20px;
     --raio-pequeno: 12px;
-    --fonte-padrao: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    --sombra-padrao: 0 20px 60px rgba(102, 126, 234, 0.15);
+    --fonte-padrao: 'JetBrains Mono', 'Fira Code', Consolas, 'Segoe UI', monospace;
+    --sombra-padrao: 0 20px 60px rgba(51, 255, 102, 0.14);
 }
 
 /* ===== LIGHT MODE ===== */
 body.light-mode {
-    --cor-fundo: #f0f2f5;
+    --cor-fundo: #f4f6f4;
     --cor-card: #ffffff;
-    --cor-borda: #d1d5db;
-    --cor-texto: #1a1a1a;
-    --cor-texto-secundario: #6b7280;
-    --cor-texto-claro: #374151;
-    --cor-fundo-input: #f9fafb;
-    --cor-hover: #e5e7eb;
-    --cor-sombra: rgba(0, 0, 0, 0.1);
-    --cor-placeholder: #9ca3af;
-    
-    --cor-email: #4f46e5;
-    --cor-telefone: #16a34a;
-    --cor-localizacao: #d97706;
-    --cor-linkedin: #075985;
-    --cor-instagram: #c0266c;
-    --cor-github: #24292f;
+    --cor-borda: #d7dbd7;
+    --cor-texto: #12140f;
+    --cor-texto-secundario: #5b6259;
+    --cor-texto-claro: #333a32;
+    --cor-fundo-input: #f7f9f7;
+    --cor-hover: #e7ebe6;
+    --cor-sombra: rgba(20, 120, 55, 0.12);
+    --cor-placeholder: #93998f;
+
+    --cor-email: #1f9d46;
+    --cor-telefone: #b3790a;
+    --cor-localizacao: #1f9d46;
+    --cor-linkedin: #b3790a;
+    --cor-instagram: #1f9d46;
+    --cor-github: #b3790a;
 }
 
 /* ===== RESET ===== */
@@ -76,6 +76,19 @@ body {
     max-width: 1100px;
     margin: 0 auto;
     padding: 20px;
+}
+
+/* ===== ÍCONES (SVG, substituem emojis) ===== */
+.icon {
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.15em;
+    flex-shrink: 0;
+}
+
+.icon-lg {
+    width: 22px;
+    height: 22px;
 }
 
 /* ===== HEADER ===== */
@@ -144,7 +157,12 @@ nav a.active {
 }
 
 .theme-icon {
-    font-size: 1.1rem;
+    display: inline-flex;
+}
+
+.theme-icon .icon {
+    width: 16px;
+    height: 16px;
 }
 
 .theme-text {
@@ -986,52 +1004,28 @@ h2 {
     opacity: 1;
 }
 
-.contacto-email::before {
-    background: linear-gradient(135deg, rgba(102, 126, 234, 0.15), rgba(102, 126, 234, 0.05));
-}
-.contacto-email:hover {
-    border-color: var(--cor-email);
-    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
-}
-
-.contacto-telefone::before {
-    background: linear-gradient(135deg, rgba(72, 187, 120, 0.15), rgba(72, 187, 120, 0.05));
-}
-.contacto-telefone:hover {
-    border-color: var(--cor-telefone);
-    box-shadow: 0 10px 30px rgba(72, 187, 120, 0.2);
-}
-
-.contacto-localizacao::before {
-    background: linear-gradient(135deg, rgba(246, 173, 85, 0.15), rgba(246, 173, 85, 0.05));
-}
-.contacto-localizacao:hover {
-    border-color: var(--cor-localizacao);
-    box-shadow: 0 10px 30px rgba(246, 173, 85, 0.2);
-}
-
-.contacto-linkedin::before {
-    background: linear-gradient(135deg, rgba(10, 102, 194, 0.15), rgba(10, 102, 194, 0.05));
-}
-.contacto-linkedin:hover {
-    border-color: var(--cor-linkedin);
-    box-shadow: 0 10px 30px rgba(10, 102, 194, 0.2);
-}
-
+.contacto-email::before,
+.contacto-localizacao::before,
 .contacto-instagram::before {
-    background: linear-gradient(135deg, rgba(225, 48, 108, 0.15), rgba(225, 48, 108, 0.05));
+    background: linear-gradient(135deg, rgba(51, 255, 102, 0.14), rgba(51, 255, 102, 0.04));
 }
+.contacto-email:hover,
+.contacto-localizacao:hover,
 .contacto-instagram:hover {
-    border-color: var(--cor-instagram);
-    box-shadow: 0 10px 30px rgba(225, 48, 108, 0.2);
+    border-color: var(--cor-primaria);
+    box-shadow: 0 10px 30px rgba(51, 255, 102, 0.18);
 }
 
+.contacto-telefone::before,
+.contacto-linkedin::before,
 .contacto-github::before {
-    background: linear-gradient(135deg, rgba(139, 139, 139, 0.18), rgba(139, 139, 139, 0.05));
+    background: linear-gradient(135deg, rgba(255, 176, 0, 0.14), rgba(255, 176, 0, 0.04));
 }
+.contacto-telefone:hover,
+.contacto-linkedin:hover,
 .contacto-github:hover {
-    border-color: var(--cor-github);
-    box-shadow: 0 10px 30px rgba(139, 139, 139, 0.25);
+    border-color: var(--cor-secundaria);
+    box-shadow: 0 10px 30px rgba(255, 176, 0, 0.18);
 }
 
 .contacto-icon-wrapper {
@@ -1044,6 +1038,19 @@ h2 {
     flex-shrink: 0;
     transition: all 0.3s ease;
     background: var(--cor-fundo-input);
+    color: var(--cor-icone, var(--cor-primaria));
+}
+
+.contacto-email .contacto-icon-wrapper,
+.contacto-localizacao .contacto-icon-wrapper,
+.contacto-instagram .contacto-icon-wrapper {
+    color: var(--cor-primaria);
+}
+
+.contacto-telefone .contacto-icon-wrapper,
+.contacto-linkedin .contacto-icon-wrapper,
+.contacto-github .contacto-icon-wrapper {
+    color: var(--cor-secundaria);
 }
 
 .contacto-card:hover .contacto-icon-wrapper {
@@ -1051,7 +1058,8 @@ h2 {
 }
 
 .contacto-icon {
-    font-size: 1.3rem;
+    width: 22px;
+    height: 22px;
 }
 
 .contacto-info-texto {
@@ -1091,6 +1099,9 @@ h2 {
 }
 
 .social-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
     color: var(--cor-texto-secundario);
     text-decoration: none;
     font-weight: 600;
@@ -1098,6 +1109,11 @@ h2 {
     padding: 8px 20px;
     border-radius: 50px;
     border: 1px solid var(--cor-borda);
+}
+
+.social-links a .icon {
+    width: 16px;
+    height: 16px;
 }
 
 .social-links a:hover {
@@ -1111,6 +1127,22 @@ h2 {
     text-align: center;
     color: var(--cor-texto-secundario);
     font-size: 0.95rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 6px 22px;
+}
+
+.contacto .inline-icone {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.contacto .icon {
+    width: 15px;
+    height: 15px;
 }
 
 /* ===== FOOTER ===== */
@@ -1231,7 +1263,8 @@ footer p {
     }
 
     .contacto-icon {
-        font-size: 1.1rem;
+        width: 18px;
+        height: 18px;
     }
 
     .contacto-valor {

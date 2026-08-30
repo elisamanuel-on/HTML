@@ -174,8 +174,8 @@ function iniciarTerminalInterativo() {
         banner: mostrarBanner,
         'sudo contrata-me': () => {
             imprimir('[sudo] password for recrutador: ********');
-            imprimir('✔ Acesso concedido. A processar candidatura...');
-            imprimir('Envia um email para elisamanueljob@gmail.com 🙂');
+            imprimir('[OK] Acesso concedido. A processar candidatura...');
+            imprimir('Envia um email para elisamanueljob@gmail.com');
         }
     };
 
