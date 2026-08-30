@@ -154,7 +154,7 @@ function iniciarTerminalInterativo() {
         cv: () => {
             imprimir('A descarregar CV...');
             const a = document.createElement('a');
-            a.href = 'cv/Elisama-Manuel-CV.pdf';
+            a.href = 'cv/CURRICULUM VITAE.pdf';
             a.download = '';
             document.body.appendChild(a);
             a.click();
