@@ -10,90 +10,99 @@ console.log('Portfólio CV carregado!');
 // ============================================
 
 function initTheme() {
-    console.log('Inicializando tema...');
     const toggleBtn = document.getElementById('toggleTheme');
-    if (!toggleBtn) {
-        console.warn('Botão toggle não encontrado!');
-        return;
-    }
+    if (!toggleBtn) return;
 
-    // Verificar preferência salva
     const savedTheme = localStorage.getItem('theme');
-    console.log('Tema salvo:', savedTheme);
-    
-    // Definir tema inicial
+
     if (savedTheme === 'light') {
         document.body.classList.add('light-mode');
         toggleBtn.innerHTML = `<span class="theme-icon">☀️</span><span class="theme-text">Light</span>`;
-        console.log('Tema Light carregado (salvo)');
     } else if (savedTheme === 'dark') {
         document.body.classList.remove('light-mode');
         toggleBtn.innerHTML = `<span class="theme-icon">🌙</span><span class="theme-text">Dark</span>`;
-        console.log('🌙 Tema Dark carregado (salvo)');
     } else {
-        // Se não houver preferência salva, verificar sistema
         const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
         if (prefersLight) {
             document.body.classList.add('light-mode');
             toggleBtn.innerHTML = `<span class="theme-icon">☀️</span><span class="theme-text">Light</span>`;
-            console.log('Tema Light carregado (sistema)');
         } else {
             document.body.classList.remove('light-mode');
             toggleBtn.innerHTML = `<span class="theme-icon">🌙</span><span class="theme-text">Dark</span>`;
-            console.log('🌙 Tema Dark carregado (padrão)');
         }
     }
 
-    // Evento de clique
     toggleBtn.addEventListener('click', function(e) {
         e.preventDefault();
-        console.log('Toggle clicado!');
-        
         const isLight = document.body.classList.toggle('light-mode');
-        
         if (isLight) {
             this.innerHTML = `<span class="theme-icon">☀️</span><span class="theme-text">Light</span>`;
             localStorage.setItem('theme', 'light');
-            console.log('☀️ Mudou para Light Mode');
         } else {
             this.innerHTML = `<span class="theme-icon">🌙</span><span class="theme-text">Dark</span>`;
             localStorage.setItem('theme', 'dark');
-            console.log('🌙 Mudou para Dark Mode');
         }
     });
-
-    console.log('Theme toggle inicializado com sucesso!');
 }
 
 // ============================================
 // 1. DADOS - COMPETÊNCIAS TÉCNICAS
 // ============================================
 const competencias = [
-    'Python', 'RPA (Automação)', 'Pandas', 'FastAPI',
-    'HTML & CSS', 'JavaScript', 'SQLite', 'MongoDB', 'Git', 'Flask'
+    'Python', 'RPA (Automação)', 'Pandas', 'FastAPI', 'Flask', 'Dash',
+    'HTML & CSS', 'JavaScript', 'SQLite', 'MongoDB', 'Git', 'Machine Learning'
+];
+
+// Competências complementares (gestão/negócio) — reforça a transição de carreira
+const competenciasComplementares = [
+    'Excel Avançado', 'SAP (ERP)', 'Canva (Design)', 'Gestão de Projetos', 'Atendimento ao Cliente'
 ];
 
 // ============================================
-// 2. DADOS - EXPERIÊNCIA PROFISSIONAL
+// 2. DADOS - EXPERIÊNCIA PROFISSIONAL (completo, do CV)
 // ============================================
 const experiencias = [
-    {
-        titulo: 'Técnica Especialista em Tecnologias e Programação',
-        empresa: 'IEFP - Instituto de Emprego e Formação Profissional',
-        periodo: '2025 - 2026',
-        descricao: 'Formação intensiva em Python, Automação (RPA), Análise de Dados, Desenvolvimento Web e Programação de Sistemas de Informação.'
-    },
     {
         titulo: 'Estrategista Comercial & Consultora de Imagem Corporativa',
         empresa: 'Perfil Azul – Prestadora de Serviços',
         periodo: 'Outubro 2025 – Dezembro 2025',
-        descricao: 'Desenvolvimento de estratégias comerciais para fortalecer a presença e competitividade da marca.'
+        descricao: 'Desenvolvimento de estratégias comerciais para fortalecer a presença e competitividade da marca. Consultoria em imagem corporativa e posicionamento de mercado.'
+    },
+    {
+        titulo: 'Comercial / Call Center',
+        empresa: 'Fitness Up, Famalicão',
+        periodo: 'Dezembro 2024 – Fevereiro 2025',
+        descricao: 'Gestão e desenvolvimento do relacionamento com clientes. Atendimento direto, resolução de reclamações e apoio comercial.'
     },
     {
         titulo: 'Administradora e Editora Adjunta',
         empresa: 'Di Cuore Eventos, Lda., Luanda',
         periodo: 'Dezembro 2022 – Julho 2024',
         descricao: 'Suporte à gestão editorial e organização de conteúdos. Supervisão de equipa e coordenação de processos internos.'
+    },
+    {
+        titulo: 'Directora do Departamento de Formação',
+        empresa: 'CEDE – Centro de Desenvolvimento Empresarial, Luanda',
+        periodo: 'Fevereiro 2022 – Novembro 2022',
+        descricao: 'Supervisão de equipa, gestão de programas e implementação de ações de capacitação.'
+    },
+    {
+        titulo: 'Estágio de Contabilista Sénior',
+        empresa: 'Infocontabil Consultoria SU LDA, Luanda',
+        periodo: 'Novembro 2021 – Janeiro 2022',
+        descricao: 'Análises financeiras e preparação de demonstrativos contábeis. Apoio na tomada de decisões estratégicas.'
+    },
+    {
+        titulo: 'Assistente Administrativa',
+        empresa: 'Miragos Empreendimentos LDA, Luanda',
+        periodo: 'Junho 2018 – Novembro 2018',
+        descricao: 'Atendimento ao cliente, vendas de serviços e gestão de comunicação. Apoio na organização de eventos e coordenação de stock.'
+    },
+    {
+        titulo: 'Assistente de Contabilidade',
+        empresa: 'Escritório de Contabilidade e Consultoria Dr. Rui Manuel, Luanda',
+        periodo: 'Março 2017 – Abril 2018',
+        descricao: 'Organização financeira, apoio administrativo e controlo de documentos.'
     }
 ];
 
@@ -119,78 +128,88 @@ const formacao = [
 ];
 
 // ============================================
-// 4. DADOS - PROJETOS
+// 4. DADOS - PROJETOS (com miniatura real de cada um)
 // ============================================
 const projetos = [
-    { 
-        id: '007', 
-        titulo: 'Calculadora 4 Operações', 
+    {
+        id: '007',
+        titulo: 'Calculadora 4 Operações',
         descricao: 'Calculadora com Soma, Subtração, Multiplicação e Divisão',
         tag: 'JavaScript',
-        caminho: 'projetos/EXERCICIO007 - Calculadora/'
+        caminho: 'projetos/EXERCICIO007 - Calculadora/',
+        imagem: 'imagens/projetos/007-calculadora.jpg'
     },
-    { 
-        id: '008', 
-        titulo: 'Tabuada Interativa', 
+    {
+        id: '008',
+        titulo: 'Tabuada Interativa',
         descricao: 'Tabuada do 1 ao 10 com design moderno',
         tag: 'JavaScript',
-        caminho: 'projetos/EXERCICIO008 - Tabuada/'
+        caminho: 'projetos/EXERCICIO008 - Tabuada/',
+        imagem: 'imagens/projetos/008-tabuada.jpg'
     },
-    { 
-        id: '009', 
-        titulo: 'Registo de Utilizador', 
+    {
+        id: '009',
+        titulo: 'Registo de Utilizador',
         descricao: 'Formulário com Nome, Idade, Curso e Escola',
         tag: 'HTML',
-        caminho: 'projetos/EXERCICIO009 - Registo de Utilizador/'
+        caminho: 'projetos/EXERCICIO009 - Registo de Utilizador/',
+        imagem: 'imagens/projetos/009-registo-utilizador.jpg'
     },
-    { 
-        id: '011', 
-        titulo: 'Curiosidades Escondidas', 
+    {
+        id: '011',
+        titulo: 'Curiosidades Escondidas',
         descricao: '3 curiosidades reveladas com clique',
         tag: 'JavaScript',
-        caminho: 'projetos/EXERCICIO011 - Curiosidades Escondidas/'
+        caminho: 'projetos/EXERCICIO011 - Curiosidades Escondidas/',
+        imagem: 'imagens/projetos/011-curiosidades.jpg'
     },
-    { 
-        id: '012', 
-        titulo: 'Imagem Escondida', 
+    {
+        id: '012',
+        titulo: 'Imagem Escondida',
         descricao: 'Revelação com hover sobre a área',
         tag: 'CSS',
-        caminho: 'projetos/EXERCICIO012 - Imagem Escondida/'
+        caminho: 'projetos/EXERCICIO012 - Imagem Escondida/',
+        imagem: 'imagens/projetos/012-imagem-escondida.jpg'
     },
-    { 
-        id: '013', 
-        titulo: 'Calculadora com 4 Operações', 
+    {
+        id: '013',
+        titulo: 'Calculadora com 4 Operações',
         descricao: 'Soma, Subtração, Multiplicação e Divisão',
         tag: 'JavaScript',
-        caminho: 'projetos/EXERCICIO013 - Calculadora com 4 Operações/'
+        caminho: 'projetos/EXERCICIO013 - Calculadora com 4 Operações/',
+        imagem: 'imagens/projetos/013-calculadora-4-operacoes.jpg'
     },
-    { 
-        id: '014', 
-        titulo: 'Jogo da Adivinha', 
+    {
+        id: '014',
+        titulo: 'Jogo da Adivinha',
         descricao: 'Adivinhe o número entre 1 e 50',
         tag: 'JavaScript',
-        caminho: 'projetos/EXERCICIO014 - Jogo da Adivinha/'
+        caminho: 'projetos/EXERCICIO014 - Jogo da Adivinha/',
+        imagem: 'imagens/projetos/014-jogo-adivinha.jpg'
     },
-    { 
-        id: '017', 
-        titulo: 'Números Primos', 
+    {
+        id: '017',
+        titulo: 'Números Primos',
         descricao: 'Encontra todos os primos até N',
         tag: 'JavaScript',
-        caminho: 'projetos/EXERCICIO017 - Números Primos/'
+        caminho: 'projetos/EXERCICIO017 - Números Primos/',
+        imagem: 'imagens/projetos/017-numeros-primos.jpg'
     },
-    { 
-        id: '018', 
-        titulo: 'Jogo da Adivinha com Toggle', 
+    {
+        id: '018',
+        titulo: 'Jogo da Adivinha com Toggle',
         descricao: 'Dark/Light Mode no jogo',
         tag: 'CSS',
-        caminho: 'projetos/EXERCICIO018 - Jogo da Adivinha com Toggle/'
+        caminho: 'projetos/EXERCICIO018 - Jogo da Adivinha com Toggle/',
+        imagem: 'imagens/projetos/018-jogo-adivinha-toggle.jpg'
     },
-    { 
-        id: '019', 
-        titulo: 'Breakpoints', 
+    {
+        id: '019',
+        titulo: 'Breakpoints',
         descricao: 'Layout responsivo com Media Queries',
         tag: 'CSS',
-        caminho: 'projetos/EXERCICIO019 - Breakpoints/'
+        caminho: 'projetos/EXERCICIO019 - Breakpoints/',
+        imagem: 'imagens/projetos/019-breakpoints.jpg'
     }
 ];
 
@@ -200,16 +219,29 @@ const projetos = [
 
 function carregarCompetencias() {
     const container = document.getElementById('tagsContainer');
-    if (!container) return;
+    if (container) {
+        container.innerHTML = '';
+        competencias.forEach(tech => {
+            const tag = document.createElement('span');
+            tag.className = 'tag';
+            tag.textContent = tech;
+            container.appendChild(tag);
+        });
+    }
 
-    container.innerHTML = '';
-    competencias.forEach(tech => {
-        const tag = document.createElement('span');
-        tag.className = 'tag';
-        tag.textContent = tech;
-        container.appendChild(tag);
-    });
-    console.log(`${competencias.length} competências carregadas`);
+    const numero = document.getElementById('numeroTech');
+    if (numero) numero.textContent = `+${competencias.length}`;
+
+    const extra = document.getElementById('tagsExtraContainer');
+    if (extra) {
+        extra.innerHTML = '';
+        competenciasComplementares.forEach(tech => {
+            const tag = document.createElement('span');
+            tag.className = 'tag tag-secundaria';
+            tag.textContent = tech;
+            extra.appendChild(tag);
+        });
+    }
 }
 
 function carregarExperiencias() {
@@ -219,7 +251,7 @@ function carregarExperiencias() {
     container.innerHTML = '';
     experiencias.forEach(exp => {
         const div = document.createElement('div');
-        div.className = 'experiencia-item';
+        div.className = 'experiencia-item reveal';
         div.innerHTML = `
             <div class="titulo">${exp.titulo}</div>
             <div class="empresa">${exp.empresa}</div>
@@ -228,7 +260,6 @@ function carregarExperiencias() {
         `;
         container.appendChild(div);
     });
-    console.log(`${experiencias.length} experiências carregadas`);
 }
 
 function carregarFormacao() {
@@ -238,7 +269,7 @@ function carregarFormacao() {
     container.innerHTML = '';
     formacao.forEach(item => {
         const div = document.createElement('div');
-        div.className = 'formacao-item';
+        div.className = 'formacao-item reveal';
         div.innerHTML = `
             <div class="titulo">${item.curso}</div>
             <div class="empresa">${item.instituicao}</div>
@@ -246,7 +277,6 @@ function carregarFormacao() {
         `;
         container.appendChild(div);
     });
-    console.log(`${formacao.length} formações carregadas`);
 }
 
 function carregarProjetos() {
@@ -256,19 +286,23 @@ function carregarProjetos() {
     container.innerHTML = '';
     projetos.forEach(proj => {
         const div = document.createElement('a');
-        div.className = 'projeto-card';
+        div.className = 'projeto-card reveal';
         div.href = proj.caminho + 'index.html';
         div.target = '_blank';
         div.innerHTML = `
-            <div class="projeto-numero">#${proj.id}</div>
-            <h3>${proj.titulo}</h3>
-            <p>${proj.descricao}</p>
-            <span class="projeto-tag">${proj.tag}</span>
-            <span class="projeto-link"> Ver Projeto →</span>
+            <div class="projeto-thumb">
+                <img src="${proj.imagem}" alt="Captura do projeto ${proj.titulo}" loading="lazy">
+                <span class="projeto-thumb-tag">${proj.tag}</span>
+            </div>
+            <div class="projeto-body">
+                <div class="projeto-numero">#${proj.id}</div>
+                <h3>${proj.titulo}</h3>
+                <p>${proj.descricao}</p>
+                <span class="projeto-link">Ver Projeto →</span>
+            </div>
         `;
         container.appendChild(div);
     });
-    console.log(`${projetos.length} projetos carregados`);
 }
 
 // ============================================
@@ -281,7 +315,7 @@ function configurarFormulario() {
 
     form.addEventListener('submit', function(e) {
         e.preventDefault();
-        
+
         const nome = document.getElementById('nome').value.trim();
         const email = document.getElementById('email').value.trim();
         const assunto = document.getElementById('assunto').value.trim();
@@ -293,27 +327,60 @@ function configurarFormulario() {
             return;
         }
 
-        feedback.className = 'feedback sucesso';
-        feedback.textContent = `Mensagem enviada com sucesso, ${nome}! Entrarei em contacto em breve.`;
-        this.reset();
+        // Sem backend próprio: abre o cliente de email do visitante já preenchido,
+        // para a mensagem chegar mesmo (em vez de simular um envio que não vai a lado nenhum).
+        const corpo = `Nome: ${nome}\nEmail: ${email}\n\n${mensagem}`;
+        const mailtoUrl = `mailto:elisamanueljob@gmail.com?subject=${encodeURIComponent(assunto)}&body=${encodeURIComponent(corpo)}`;
 
-        console.log(`Mensagem de ${nome} (${email}): ${assunto}`);
+        feedback.className = 'feedback sucesso';
+        feedback.textContent = `A abrir o teu programa de email para enviares a mensagem, ${nome}...`;
+
+        window.location.href = mailtoUrl;
+        this.reset();
     });
-    console.log('Formulário configurado');
 }
 
 // ============================================
-// 7. INICIALIZAR TUDO
+// 7. ANIMAÇÃO AO FAZER SCROLL (reveal)
+// ============================================
+function iniciarScrollReveal() {
+    const alvo = document.querySelectorAll('.reveal');
+    if (!alvo.length) return;
+
+    if (!('IntersectionObserver' in window)) {
+        alvo.forEach(el => el.classList.add('visible'));
+        return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    alvo.forEach(el => observer.observe(el));
+}
+
+// ============================================
+// 8. INICIALIZAR TUDO
 // ============================================
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOM carregado, inicializando...');
     initTheme();
     carregarCompetencias();
     carregarExperiencias();
     carregarFormacao();
     carregarProjetos();
     configurarFormulario();
-    
-    console.log('Portfólio CV completamente carregado!');
-    console.log('Clique no para alternar entre Dark e Light Mode');
+
+    // marca as secções estáticas para a animação de scroll também
+    document.querySelectorAll('section, .hero-cta, .contactos-grid, .contacto-form').forEach(el => {
+        el.classList.add('reveal');
+    });
+
+    iniciarScrollReveal();
+
+    document.body.classList.add('pagina-pronta');
 });

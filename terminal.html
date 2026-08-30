@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elisama | Terminal</title>
+    <meta name="description" content="Terminal interativo do portfólio de Elisama Manuel — escreve 'help' para explorar.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="imagens/Ativo 30@2x.png">
+</head>
+<body class="pagina-pronta">
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <nav>
+                    <a href="index.html">Perfil</a>
+                    <a href="portfolio.html">Portfólio</a>
+                    <a href="terminal.html" class="active">Terminal</a>
+                    <a href="contacto.html">Contacto</a>
+                </nav>
+                <button id="toggleTheme" class="btn-theme" aria-label="Alternar tema">
+                    <span class="theme-icon"> </span>
+                    <span class="theme-text">Dark</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="terminal-page">
+            <div class="term-janela" id="termJanela">
+                <div class="term-topo">
+                    <span class="term-dot vermelho"></span>
+                    <span class="term-dot amarelo"></span>
+                    <span class="term-dot verde"></span>
+                    <span class="term-titulo">elisama@portfolio: ~</span>
+                </div>
+                <div class="term-corpo" id="termOutput"></div>
+                <div class="term-input-wrap">
+                    <span class="term-prompt">elisama@portfolio:~$</span>
+                    <input type="text" id="termInput" autocomplete="off" spellcheck="false" aria-label="Escreve um comando">
+                </div>
+            </div>
+        </section>
+        <p class="term-hint">experimenta: <strong>help</strong>, <strong>projetos</strong>, <strong>skills</strong>, <strong>sudo contrata-me</strong></p>
+    </main>
+
+    <footer>
+        <p>Elisama Manuel - Tecnologias e Programação de Sistemas de Informação</p>
+        <div class="voltar">
+            <a href="index.html">← Voltar ao Início</a>
+        </div>
+    </footer>
+
+    <script src="terminal-core.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
