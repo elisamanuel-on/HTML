@@ -28,16 +28,24 @@
         <div class="container">
             <div class="header-content">
                 <nav>
-                    <a href="index.html" class="active">Perfil</a>
-                    <a href="portfolio.html">Portfólio</a>
-                    <a href="terminal.html">Terminal</a>
-                    <a href="contacto.html">Contacto</a>
+                    <a href="index.html" class="active" data-i18n="nav_perfil">Perfil</a>
+                    <a href="portfolio.html" data-i18n="nav_portfolio">Portfólio</a>
+                    <a href="terminal.html" data-i18n="nav_terminal">Terminal</a>
+                    <a href="contacto.html" data-i18n="nav_contacto">Contacto</a>
                 </nav>
-                <!-- Toggle Dark/Light Mode -->
-                <button id="toggleTheme" class="btn-theme" aria-label="Alternar tema">
-                    <span class="theme-icon"> </span>
-                    <span class="theme-text">Dark</span>
-                </button>
+                <div class="controlos-topo">
+                    <div class="lang-switcher" role="group" aria-label="Idioma / Language">
+                        <button class="lang-btn" data-lang="pt">PT</button>
+                        <button class="lang-btn" data-lang="en">EN</button>
+                        <button class="lang-btn" data-lang="es">ES</button>
+                        <button class="lang-btn" data-lang="fr">FR</button>
+                    </div>
+                    <!-- Toggle Dark/Light Mode -->
+                    <button id="toggleTheme" class="btn-theme" aria-label="Alternar tema">
+                        <span class="theme-icon"> </span>
+                        <span class="theme-text">Dark</span>
+                    </button>
+                </div>
             </div>
         </div>
     </header>
@@ -50,34 +58,34 @@
                 <div class="col imagem-col">
                     <div class="imagem-wrapper">
                         <img src="imagens/WhatsApp Image 2026-07-23 at 17.38.49.jpeg" alt="Elisama Manuel" class="imagem-perfil">
-                        <div class="imagem-badge">Dev em Formação</div>
+                        <div class="imagem-badge" data-i18n="hero_badge">Dev em Formação</div>
                     </div>
                 </div>
 
                 <div class="col conteudo-col">
                     <h1>Elisama Manuel</h1>
-                    <h2>Desenvolvedora em Formação • Tecnologias de Informação</h2>
+                    <h2 data-i18n="hero_subtitulo">Desenvolvedora em Formação • Tecnologias de Informação</h2>
 
-                    <p>Com uma base sólida em <strong>Finanças e Contabilidade</strong> e uma transição estratégica para a área tecnológica, atualmente sou Técnica Especialista em <strong>Tecnologias e Programação de Sistemas de Informação</strong> no IEFP.</p>
+                    <p data-i18n="hero_p1">Com uma base sólida em <strong>Finanças e Contabilidade</strong> e uma transição estratégica para a área tecnológica, atualmente sou Técnica Especialista em <strong>Tecnologias e Programação de Sistemas de Informação</strong> no IEFP.</p>
 
-                    <p>Especializo-me em <strong>Python, Automação de Processos (RPA), Análise de Dados e Desenvolvimento Web</strong>. A minha missão é aliar a experiência em gestão e negócios com competências técnicas para criar soluções inovadoras.</p>
+                    <p data-i18n="hero_p2">Especializo-me em <strong>Python, Automação de Processos (RPA), Análise de Dados e Desenvolvimento Web</strong>. A minha missão é aliar a experiência em gestão e negócios com competências técnicas para criar soluções inovadoras.</p>
 
                     <div class="hero-cta">
-                        <a href="cv/CURRICULUM VITAE.pdf" class="btn btn-primario" download><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Descarregar CV</a>
-                        <a href="portfolio.html" class="btn btn-secundario">Ver Projetos →</a>
+                        <a href="cv/Elisama-Manuel-CV.pdf" class="btn btn-primario" download><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> <span data-i18n="hero_btn_cv">Descarregar CV</span></a>
+                        <a href="portfolio.html" class="btn btn-secundario" data-i18n="hero_btn_projetos">Ver Projetos →</a>
                     </div>
 
                     <div class="stats-row">
-                        <div class="stat"><span class="stat-num">10</span><span class="stat-label">Projetos</span></div>
-                        <div class="stat"><span class="stat-num" id="numeroTech">+6</span><span class="stat-label">Tecnologias</span></div>
-                        <div class="stat"><span class="stat-num">7</span><span class="stat-label">Experiências</span></div>
+                        <div class="stat"><span class="stat-num">10</span><span class="stat-label" data-i18n="stat_projetos">Projetos</span></div>
+                        <div class="stat"><span class="stat-num" id="numeroTech">+6</span><span class="stat-label" data-i18n="stat_tecnologias">Tecnologias</span></div>
+                        <div class="stat"><span class="stat-num">7</span><span class="stat-label" data-i18n="stat_experiencias">Experiências</span></div>
                     </div>
 
                     <div class="tags" id="tagsContainer">
                         <!-- Tags geradas pelo JavaScript -->
                     </div>
 
-                    <p class="tags-extra-label">Também trago experiência em:</p>
+                    <p class="tags-extra-label" data-i18n="tags_extra_label">Também trago experiência em:</p>
                     <div class="tags tags-extra" id="tagsExtraContainer">
                         <!-- Tags complementares geradas pelo JavaScript -->
                     </div>
@@ -87,7 +95,7 @@
 
         <!-- SECÇÃO EXPERIÊNCIA -->
         <section class="experiencia">
-            <h2 class="titulo-seccao">Experiência Profissional</h2>
+            <h2 class="titulo-seccao" data-i18n="titulo_experiencia">Experiência Profissional</h2>
             <div class="experiencia-grid" id="experienciaContainer">
                 <!-- Gerado pelo JavaScript -->
             </div>
@@ -95,7 +103,7 @@
 
         <!-- SECÇÃO FORMAÇÃO -->
         <section class="formacao">
-            <h2 class="titulo-seccao">Formação Académica</h2>
+            <h2 class="titulo-seccao" data-i18n="titulo_formacao">Formação Académica</h2>
             <div class="formacao-grid" id="formacaoContainer">
                 <!-- Gerado pelo JavaScript -->
             </div>
@@ -116,9 +124,10 @@
     </main>
 
     <footer>
-        <p>Elisama Manuel - Tecnologias e Programação de Sistemas de Informação</p>
+        <p>Elisama Manuel - <span data-i18n="footer_tagline">Tecnologias e Programação de Sistemas de Informação</span></p>
     </footer>
 
+    <script src="i18n.js"></script>
     <script src="terminal-core.js"></script>
     <script src="script.js"></script>
 </body>

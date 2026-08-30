@@ -13,15 +13,23 @@
         <div class="container">
             <div class="header-content">
                 <nav>
-                    <a href="index.html">Perfil</a>
-                    <a href="portfolio.html">Portfólio</a>
-                    <a href="terminal.html" class="active">Terminal</a>
-                    <a href="contacto.html">Contacto</a>
+                    <a href="index.html" data-i18n="nav_perfil">Perfil</a>
+                    <a href="portfolio.html" data-i18n="nav_portfolio">Portfólio</a>
+                    <a href="terminal.html" class="active" data-i18n="nav_terminal">Terminal</a>
+                    <a href="contacto.html" data-i18n="nav_contacto">Contacto</a>
                 </nav>
-                <button id="toggleTheme" class="btn-theme" aria-label="Alternar tema">
-                    <span class="theme-icon"> </span>
-                    <span class="theme-text">Dark</span>
-                </button>
+                <div class="controlos-topo">
+                    <div class="lang-switcher" role="group" aria-label="Idioma / Language">
+                        <button class="lang-btn" data-lang="pt">PT</button>
+                        <button class="lang-btn" data-lang="en">EN</button>
+                        <button class="lang-btn" data-lang="es">ES</button>
+                        <button class="lang-btn" data-lang="fr">FR</button>
+                    </div>
+                    <button id="toggleTheme" class="btn-theme" aria-label="Alternar tema">
+                        <span class="theme-icon"> </span>
+                        <span class="theme-text">Dark</span>
+                    </button>
+                </div>
             </div>
         </div>
     </header>
@@ -42,16 +50,17 @@
                 </div>
             </div>
         </section>
-        <p class="term-hint">experimenta: <strong>help</strong>, <strong>projetos</strong>, <strong>skills</strong>, <strong>sudo contrata-me</strong></p>
+        <p class="term-hint"><span data-i18n="term_hint_prefixo">experimenta:</span> <strong>help</strong>, <strong>projetos</strong>, <strong>skills</strong>, <strong>sudo contrata-me</strong></p>
     </main>
 
     <footer>
-        <p>Elisama Manuel - Tecnologias e Programação de Sistemas de Informação</p>
+        <p>Elisama Manuel - <span data-i18n="footer_tagline">Tecnologias e Programação de Sistemas de Informação</span></p>
         <div class="voltar">
-            <a href="index.html">← Voltar ao Início</a>
+            <a href="index.html" data-i18n="voltar_inicio">← Voltar ao Início</a>
         </div>
     </footer>
 
+    <script src="i18n.js"></script>
     <script src="terminal-core.js"></script>
     <script src="script.js"></script>
 </body>

@@ -165,6 +165,47 @@ nav a.active {
     height: 16px;
 }
 
+/* ===== CONTROLOS DO TOPO (tema + idioma) ===== */
+.controlos-topo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* ===== SELETOR DE IDIOMA ===== */
+.lang-switcher {
+    display: flex;
+    gap: 4px;
+    padding: 4px;
+    background: var(--cor-fundo-input);
+    border: 1px solid var(--cor-borda);
+    border-radius: 50px;
+}
+
+.lang-btn {
+    padding: 5px 10px;
+    background: transparent;
+    color: var(--cor-texto-secundario);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: var(--fonte-padrao);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    transition: all 0.25s ease;
+}
+
+.lang-btn:hover {
+    color: var(--cor-texto);
+}
+
+.lang-btn.ativo {
+    background: var(--cor-primaria);
+    color: #08130a;
+}
+
 .theme-text {
     font-size: 0.8rem;
 }

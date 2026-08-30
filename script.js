@@ -21,14 +21,17 @@ function initTheme() {
     const toggleBtn = document.getElementById('toggleTheme');
     if (!toggleBtn) return;
 
-    const savedTheme = localStorage.getItem('theme');
-
     function aplicar(tema) {
         const claro = tema === 'light';
         document.body.classList.toggle('light-mode', claro);
-        toggleBtn.innerHTML = `<span class="theme-icon">${claro ? ICONES.sol : ICONES.lua}</span><span class="theme-text">${claro ? 'Light' : 'Dark'}</span>`;
+        const textoTema = claro ? t('theme_light') : t('theme_dark');
+        toggleBtn.innerHTML = `<span class="theme-icon">${claro ? ICONES.sol : ICONES.lua}</span><span class="theme-text">${textoTema}</span>`;
     }
 
+    // guarda a função para o texto poder ser atualizado quando o idioma muda
+    toggleBtn._aplicarTema = aplicar;
+
+    const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'light' || savedTheme === 'dark') {
         aplicar(savedTheme);
     } else {
@@ -44,17 +47,38 @@ function initTheme() {
     });
 }
 
+function atualizarTextoTema() {
+    const toggleBtn = document.getElementById('toggleTheme');
+    if (!toggleBtn || !toggleBtn._aplicarTema) return;
+    const claro = document.body.classList.contains('light-mode');
+    toggleBtn._aplicarTema(claro ? 'light' : 'dark');
+}
+
 // ============================================
 // 1. DADOS - COMPETÊNCIAS TÉCNICAS
 // ============================================
 const competencias = [
-    'Python', 'RPA (Automação)', 'Pandas', 'FastAPI', 'Flask', 'Dash',
-    'HTML & CSS', 'JavaScript', 'SQLite', 'MongoDB', 'Git', 'Machine Learning'
+    { pt: 'Python', en: 'Python', es: 'Python', fr: 'Python' },
+    { pt: 'RPA (Automação)', en: 'RPA (Automation)', es: 'RPA (Automatización)', fr: 'RPA (Automatisation)' },
+    { pt: 'Pandas', en: 'Pandas', es: 'Pandas', fr: 'Pandas' },
+    { pt: 'FastAPI', en: 'FastAPI', es: 'FastAPI', fr: 'FastAPI' },
+    { pt: 'Flask', en: 'Flask', es: 'Flask', fr: 'Flask' },
+    { pt: 'Dash', en: 'Dash', es: 'Dash', fr: 'Dash' },
+    { pt: 'HTML & CSS', en: 'HTML & CSS', es: 'HTML & CSS', fr: 'HTML & CSS' },
+    { pt: 'JavaScript', en: 'JavaScript', es: 'JavaScript', fr: 'JavaScript' },
+    { pt: 'SQLite', en: 'SQLite', es: 'SQLite', fr: 'SQLite' },
+    { pt: 'MongoDB', en: 'MongoDB', es: 'MongoDB', fr: 'MongoDB' },
+    { pt: 'Git', en: 'Git', es: 'Git', fr: 'Git' },
+    { pt: 'Machine Learning', en: 'Machine Learning', es: 'Machine Learning', fr: 'Machine Learning' }
 ];
 
 // Competências complementares (gestão/negócio) — reforça a transição de carreira
 const competenciasComplementares = [
-    'Excel Avançado', 'SAP (ERP)', 'Canva (Design)', 'Gestão de Projetos', 'Atendimento ao Cliente'
+    { pt: 'Excel Avançado', en: 'Advanced Excel', es: 'Excel Avanzado', fr: 'Excel Avancé' },
+    { pt: 'SAP (ERP)', en: 'SAP (ERP)', es: 'SAP (ERP)', fr: 'SAP (ERP)' },
+    { pt: 'Canva (Design)', en: 'Canva (Design)', es: 'Canva (Diseño)', fr: 'Canva (Design)' },
+    { pt: 'Gestão de Projetos', en: 'Project Management', es: 'Gestión de Proyectos', fr: 'Gestion de Projets' },
+    { pt: 'Atendimento ao Cliente', en: 'Customer Service', es: 'Atención al Cliente', fr: 'Service Client' }
 ];
 
 // ============================================
@@ -62,46 +86,151 @@ const competenciasComplementares = [
 // ============================================
 const experiencias = [
     {
-        titulo: 'Estrategista Comercial & Consultora de Imagem Corporativa',
+        titulo: {
+            pt: 'Estrategista Comercial & Consultora de Imagem Corporativa',
+            en: 'Commercial Strategist & Corporate Image Consultant',
+            es: 'Estratega Comercial y Consultora de Imagen Corporativa',
+            fr: 'Stratège Commerciale & Consultante en Image Corporative'
+        },
         empresa: 'Perfil Azul – Prestadora de Serviços',
-        periodo: 'Outubro 2025 – Dezembro 2025',
-        descricao: 'Desenvolvimento de estratégias comerciais para fortalecer a presença e competitividade da marca. Consultoria em imagem corporativa e posicionamento de mercado.'
+        periodo: {
+            pt: 'Outubro 2025 – Dezembro 2025',
+            en: 'October 2025 – December 2025',
+            es: 'Octubre 2025 – Diciembre 2025',
+            fr: 'Octobre 2025 – Décembre 2025'
+        },
+        descricao: {
+            pt: 'Desenvolvimento de estratégias comerciais para fortalecer a presença e competitividade da marca. Consultoria em imagem corporativa e posicionamento de mercado.',
+            en: 'Developed commercial strategies to strengthen brand presence and competitiveness. Consulting on corporate image and market positioning.',
+            es: 'Desarrollo de estrategias comerciales para fortalecer la presencia y competitividad de la marca. Consultoría en imagen corporativa y posicionamiento de mercado.',
+            fr: 'Développement de stratégies commerciales pour renforcer la présence et la compétitivité de la marque. Conseil en image corporative et positionnement sur le marché.'
+        }
     },
     {
-        titulo: 'Comercial / Call Center',
+        titulo: {
+            pt: 'Comercial / Call Center',
+            en: 'Sales / Call Center',
+            es: 'Comercial / Call Center',
+            fr: 'Commercial / Centre d\'Appels'
+        },
         empresa: 'Fitness Up, Famalicão',
-        periodo: 'Dezembro 2024 – Fevereiro 2025',
-        descricao: 'Gestão e desenvolvimento do relacionamento com clientes. Atendimento direto, resolução de reclamações e apoio comercial.'
+        periodo: {
+            pt: 'Dezembro 2024 – Fevereiro 2025',
+            en: 'December 2024 – February 2025',
+            es: 'Diciembre 2024 – Febrero 2025',
+            fr: 'Décembre 2024 – Février 2025'
+        },
+        descricao: {
+            pt: 'Gestão e desenvolvimento do relacionamento com clientes. Atendimento direto, resolução de reclamações e apoio comercial.',
+            en: 'Managed and developed customer relationships. Direct customer support, complaint resolution and sales assistance.',
+            es: 'Gestión y desarrollo de la relación con los clientes. Atención directa, resolución de reclamaciones y apoyo comercial.',
+            fr: 'Gestion et développement de la relation client. Accueil direct, résolution des réclamations et soutien commercial.'
+        }
     },
     {
-        titulo: 'Administradora e Editora Adjunta',
+        titulo: {
+            pt: 'Administradora e Editora Adjunta',
+            en: 'Administrator & Deputy Editor',
+            es: 'Administradora y Editora Adjunta',
+            fr: 'Administratrice et Rédactrice Adjointe'
+        },
         empresa: 'Di Cuore Eventos, Lda., Luanda',
-        periodo: 'Dezembro 2022 – Julho 2024',
-        descricao: 'Suporte à gestão editorial e organização de conteúdos. Supervisão de equipa e coordenação de processos internos.'
+        periodo: {
+            pt: 'Dezembro 2022 – Julho 2024',
+            en: 'December 2022 – July 2024',
+            es: 'Diciembre 2022 – Julio 2024',
+            fr: 'Décembre 2022 – Juillet 2024'
+        },
+        descricao: {
+            pt: 'Suporte à gestão editorial e organização de conteúdos. Supervisão de equipa e coordenação de processos internos.',
+            en: 'Supported editorial management and content organization. Supervised the team and coordinated internal processes.',
+            es: 'Apoyo a la gestión editorial y organización de contenidos. Supervisión de equipo y coordinación de procesos internos.',
+            fr: 'Soutien à la gestion éditoriale et à l\'organisation des contenus. Supervision de l\'équipe et coordination des processus internes.'
+        }
     },
     {
-        titulo: 'Directora do Departamento de Formação',
+        titulo: {
+            pt: 'Directora do Departamento de Formação',
+            en: 'Head of Training Department',
+            es: 'Directora del Departamento de Formación',
+            fr: 'Directrice du Département de Formation'
+        },
         empresa: 'CEDE – Centro de Desenvolvimento Empresarial, Luanda',
-        periodo: 'Fevereiro 2022 – Novembro 2022',
-        descricao: 'Supervisão de equipa, gestão de programas e implementação de ações de capacitação.'
+        periodo: {
+            pt: 'Fevereiro 2022 – Novembro 2022',
+            en: 'February 2022 – November 2022',
+            es: 'Febrero 2022 – Noviembre 2022',
+            fr: 'Février 2022 – Novembre 2022'
+        },
+        descricao: {
+            pt: 'Supervisão de equipa, gestão de programas e implementação de ações de capacitação.',
+            en: 'Supervised the team, managed programs and implemented training initiatives.',
+            es: 'Supervisión de equipo, gestión de programas e implementación de acciones de capacitación.',
+            fr: 'Supervision de l\'équipe, gestion des programmes et mise en œuvre d\'actions de formation.'
+        }
     },
     {
-        titulo: 'Estágio de Contabilista Sénior',
+        titulo: {
+            pt: 'Estágio de Contabilista Sénior',
+            en: 'Senior Accountant Internship',
+            es: 'Prácticas de Contable Sénior',
+            fr: 'Stage de Comptable Senior'
+        },
         empresa: 'Infocontabil Consultoria SU LDA, Luanda',
-        periodo: 'Novembro 2021 – Janeiro 2022',
-        descricao: 'Análises financeiras e preparação de demonstrativos contábeis. Apoio na tomada de decisões estratégicas.'
+        periodo: {
+            pt: 'Novembro 2021 – Janeiro 2022',
+            en: 'November 2021 – January 2022',
+            es: 'Noviembre 2021 – Enero 2022',
+            fr: 'Novembre 2021 – Janvier 2022'
+        },
+        descricao: {
+            pt: 'Análises financeiras e preparação de demonstrativos contábeis. Apoio na tomada de decisões estratégicas.',
+            en: 'Conducted financial analyses and prepared accounting statements. Supported strategic decision-making.',
+            es: 'Análisis financieros y preparación de estados contables. Apoyo en la toma de decisiones estratégicas.',
+            fr: 'Analyses financières et préparation des états comptables. Soutien à la prise de décisions stratégiques.'
+        }
     },
     {
-        titulo: 'Assistente Administrativa',
+        titulo: {
+            pt: 'Assistente Administrativa',
+            en: 'Administrative Assistant',
+            es: 'Asistente Administrativa',
+            fr: 'Assistante Administrative'
+        },
         empresa: 'Miragos Empreendimentos LDA, Luanda',
-        periodo: 'Junho 2018 – Novembro 2018',
-        descricao: 'Atendimento ao cliente, vendas de serviços e gestão de comunicação. Apoio na organização de eventos e coordenação de stock.'
+        periodo: {
+            pt: 'Junho 2018 – Novembro 2018',
+            en: 'June 2018 – November 2018',
+            es: 'Junio 2018 – Noviembre 2018',
+            fr: 'Juin 2018 – Novembre 2018'
+        },
+        descricao: {
+            pt: 'Atendimento ao cliente, vendas de serviços e gestão de comunicação. Apoio na organização de eventos e coordenação de stock.',
+            en: 'Customer service, service sales and communications management. Supported event organization and stock coordination.',
+            es: 'Atención al cliente, ventas de servicios y gestión de la comunicación. Apoyo en la organización de eventos y coordinación de stock.',
+            fr: 'Service client, vente de services et gestion de la communication. Soutien à l\'organisation d\'événements et à la coordination des stocks.'
+        }
     },
     {
-        titulo: 'Assistente de Contabilidade',
+        titulo: {
+            pt: 'Assistente de Contabilidade',
+            en: 'Accounting Assistant',
+            es: 'Asistente de Contabilidad',
+            fr: 'Assistante Comptable'
+        },
         empresa: 'Escritório de Contabilidade e Consultoria Dr. Rui Manuel, Luanda',
-        periodo: 'Março 2017 – Abril 2018',
-        descricao: 'Organização financeira, apoio administrativo e controlo de documentos.'
+        periodo: {
+            pt: 'Março 2017 – Abril 2018',
+            en: 'March 2017 – April 2018',
+            es: 'Marzo 2017 – Abril 2018',
+            fr: 'Mars 2017 – Avril 2018'
+        },
+        descricao: {
+            pt: 'Organização financeira, apoio administrativo e controlo de documentos.',
+            en: 'Handled financial organization, administrative support and document control.',
+            es: 'Organización financiera, apoyo administrativo y control de documentos.',
+            fr: 'Organisation financière, soutien administratif et contrôle des documents.'
+        }
     }
 ];
 
@@ -110,17 +239,32 @@ const experiencias = [
 // ============================================
 const formacao = [
     {
-        curso: 'Técnico Especialista em Tecnologias e Programação de Sistemas de Informação',
+        curso: {
+            pt: 'Técnico Especialista em Tecnologias e Programação de Sistemas de Informação',
+            en: 'Specialist Technician in Information Systems Technology and Programming',
+            es: 'Técnica Especialista en Tecnologías y Programación de Sistemas de Información',
+            fr: 'Technicienne Spécialiste en Technologies et Programmation des Systèmes d\'Information'
+        },
         instituicao: 'IEFP – Instituto de Emprego e Formação Profissional',
         periodo: '2025 – 2026'
     },
     {
-        curso: 'Licenciatura em Finanças e Contabilidade',
+        curso: {
+            pt: 'Licenciatura em Finanças e Contabilidade',
+            en: 'Bachelor\'s Degree in Finance and Accounting',
+            es: 'Licenciatura en Finanzas y Contabilidad',
+            fr: 'Licence en Finance et Comptabilité'
+        },
         instituicao: 'Universidade Independente de Angola',
         periodo: '2018 – 2022'
     },
     {
-        curso: 'Curso Técnico em Finanças',
+        curso: {
+            pt: 'Curso Técnico em Finanças',
+            en: 'Technical Course in Finance',
+            es: 'Curso Técnico en Finanzas',
+            fr: 'Cours Technique en Finance'
+        },
         instituicao: 'Instituto Médio de Administração e Gestão, Luanda',
         periodo: '2014 – 2017'
     }
@@ -132,80 +276,80 @@ const formacao = [
 const projetos = [
     {
         id: '007',
-        titulo: 'Calculadora 4 Operações',
-        descricao: 'Calculadora com Soma, Subtração, Multiplicação e Divisão',
+        titulo: { pt: 'Calculadora 4 Operações', en: '4-Operation Calculator', es: 'Calculadora de 4 Operaciones', fr: 'Calculatrice à 4 Opérations' },
+        descricao: { pt: 'Calculadora com Soma, Subtração, Multiplicação e Divisão', en: 'Calculator with Addition, Subtraction, Multiplication and Division', es: 'Calculadora con Suma, Resta, Multiplicación y División', fr: 'Calculatrice avec Addition, Soustraction, Multiplication et Division' },
         tag: 'JavaScript',
         caminho: 'projetos/EXERCICIO007 - Calculadora/',
         imagem: 'imagens/projetos/007-calculadora.jpg'
     },
     {
         id: '008',
-        titulo: 'Tabuada Interativa',
-        descricao: 'Tabuada do 1 ao 10 com design moderno',
+        titulo: { pt: 'Tabuada Interativa', en: 'Interactive Times Table', es: 'Tabla de Multiplicar Interactiva', fr: 'Table de Multiplication Interactive' },
+        descricao: { pt: 'Tabuada do 1 ao 10 com design moderno', en: 'Times tables from 1 to 10 with a modern design', es: 'Tablas del 1 al 10 con diseño moderno', fr: 'Tables de 1 à 10 avec un design moderne' },
         tag: 'JavaScript',
         caminho: 'projetos/EXERCICIO008 - Tabuada/',
         imagem: 'imagens/projetos/008-tabuada.jpg'
     },
     {
         id: '009',
-        titulo: 'Registo de Utilizador',
-        descricao: 'Formulário com Nome, Idade, Curso e Escola',
+        titulo: { pt: 'Registo de Utilizador', en: 'User Registration', es: 'Registro de Usuario', fr: 'Inscription Utilisateur' },
+        descricao: { pt: 'Formulário com Nome, Idade, Curso e Escola', en: 'Form with Name, Age, Course and School', es: 'Formulario con Nombre, Edad, Curso y Escuela', fr: 'Formulaire avec Nom, Âge, Cours et École' },
         tag: 'HTML',
         caminho: 'projetos/EXERCICIO009 - Registo de Utilizador/',
         imagem: 'imagens/projetos/009-registo-utilizador.jpg'
     },
     {
         id: '011',
-        titulo: 'Curiosidades Escondidas',
-        descricao: '3 curiosidades reveladas com clique',
+        titulo: { pt: 'Curiosidades Escondidas', en: 'Hidden Facts', es: 'Curiosidades Escondidas', fr: 'Curiosités Cachées' },
+        descricao: { pt: '3 curiosidades reveladas com clique', en: '3 fun facts revealed with a click', es: '3 curiosidades reveladas con un clic', fr: '3 anecdotes révélées d\'un clic' },
         tag: 'JavaScript',
         caminho: 'projetos/EXERCICIO011 - Curiosidades Escondidas/',
         imagem: 'imagens/projetos/011-curiosidades.jpg'
     },
     {
         id: '012',
-        titulo: 'Imagem Escondida',
-        descricao: 'Revelação com hover sobre a área',
+        titulo: { pt: 'Imagem Escondida', en: 'Hidden Image', es: 'Imagen Escondida', fr: 'Image Cachée' },
+        descricao: { pt: 'Revelação com hover sobre a área', en: 'Revealed on hover over the area', es: 'Se revela al pasar el cursor sobre el área', fr: 'Révélée au survol de la zone' },
         tag: 'CSS',
         caminho: 'projetos/EXERCICIO012 - Imagem Escondida/',
         imagem: 'imagens/projetos/012-imagem-escondida.jpg'
     },
     {
         id: '013',
-        titulo: 'Calculadora com 4 Operações',
-        descricao: 'Soma, Subtração, Multiplicação e Divisão',
+        titulo: { pt: 'Calculadora com 4 Operações', en: 'Calculator with 4 Operations', es: 'Calculadora con 4 Operaciones', fr: 'Calculatrice à 4 Opérations' },
+        descricao: { pt: 'Soma, Subtração, Multiplicação e Divisão', en: 'Addition, Subtraction, Multiplication and Division', es: 'Suma, Resta, Multiplicación y División', fr: 'Addition, Soustraction, Multiplication et Division' },
         tag: 'JavaScript',
         caminho: 'projetos/EXERCICIO013 - Calculadora com 4 Operações/',
         imagem: 'imagens/projetos/013-calculadora-4-operacoes.jpg'
     },
     {
         id: '014',
-        titulo: 'Jogo da Adivinha',
-        descricao: 'Adivinhe o número entre 1 e 50',
+        titulo: { pt: 'Jogo da Adivinha', en: 'Guessing Game', es: 'Juego de Adivinanza', fr: 'Jeu de Devinette' },
+        descricao: { pt: 'Adivinhe o número entre 1 e 50', en: 'Guess the number between 1 and 50', es: 'Adivina el número entre 1 y 50', fr: 'Devinez le nombre entre 1 et 50' },
         tag: 'JavaScript',
         caminho: 'projetos/EXERCICIO014 - Jogo da Adivinha/',
         imagem: 'imagens/projetos/014-jogo-adivinha.jpg'
     },
     {
         id: '017',
-        titulo: 'Números Primos',
-        descricao: 'Encontra todos os primos até N',
+        titulo: { pt: 'Números Primos', en: 'Prime Numbers', es: 'Números Primos', fr: 'Nombres Premiers' },
+        descricao: { pt: 'Encontra todos os primos até N', en: 'Finds all primes up to N', es: 'Encuentra todos los primos hasta N', fr: 'Trouve tous les nombres premiers jusqu\'à N' },
         tag: 'JavaScript',
         caminho: 'projetos/EXERCICIO017 - Números Primos/',
         imagem: 'imagens/projetos/017-numeros-primos.jpg'
     },
     {
         id: '018',
-        titulo: 'Jogo da Adivinha com Toggle',
-        descricao: 'Dark/Light Mode no jogo',
+        titulo: { pt: 'Jogo da Adivinha com Toggle', en: 'Guessing Game with Toggle', es: 'Juego de Adivinanza con Toggle', fr: 'Jeu de Devinette avec Bascule' },
+        descricao: { pt: 'Dark/Light Mode no jogo', en: 'Dark/Light Mode in the game', es: 'Modo Oscuro/Claro en el juego', fr: 'Mode Sombre/Clair dans le jeu' },
         tag: 'CSS',
         caminho: 'projetos/EXERCICIO018 - Jogo da Adivinha com Toggle/',
         imagem: 'imagens/projetos/018-jogo-adivinha-toggle.jpg'
     },
     {
         id: '019',
-        titulo: 'Breakpoints',
-        descricao: 'Layout responsivo com Media Queries',
+        titulo: { pt: 'Breakpoints', en: 'Breakpoints', es: 'Breakpoints', fr: 'Breakpoints' },
+        descricao: { pt: 'Layout responsivo com Media Queries', en: 'Responsive layout with Media Queries', es: 'Diseño responsivo con Media Queries', fr: 'Mise en page responsive avec Media Queries' },
         tag: 'CSS',
         caminho: 'projetos/EXERCICIO019 - Breakpoints/',
         imagem: 'imagens/projetos/019-breakpoints.jpg'
@@ -223,7 +367,7 @@ function carregarCompetencias() {
         competencias.forEach(tech => {
             const tag = document.createElement('span');
             tag.className = 'tag';
-            tag.textContent = tech;
+            tag.textContent = L(tech);
             container.appendChild(tag);
         });
     }
@@ -237,7 +381,7 @@ function carregarCompetencias() {
         competenciasComplementares.forEach(tech => {
             const tag = document.createElement('span');
             tag.className = 'tag tag-secundaria';
-            tag.textContent = tech;
+            tag.textContent = L(tech);
             extra.appendChild(tag);
         });
     }
@@ -252,10 +396,10 @@ function carregarExperiencias() {
         const div = document.createElement('div');
         div.className = 'experiencia-item reveal';
         div.innerHTML = `
-            <div class="titulo">${exp.titulo}</div>
+            <div class="titulo">${L(exp.titulo)}</div>
             <div class="empresa">${exp.empresa}</div>
-            <div class="periodo">${exp.periodo}</div>
-            <div class="descricao">${exp.descricao}</div>
+            <div class="periodo">${L(exp.periodo)}</div>
+            <div class="descricao">${L(exp.descricao)}</div>
         `;
         container.appendChild(div);
     });
@@ -270,7 +414,7 @@ function carregarFormacao() {
         const div = document.createElement('div');
         div.className = 'formacao-item reveal';
         div.innerHTML = `
-            <div class="titulo">${item.curso}</div>
+            <div class="titulo">${L(item.curso)}</div>
             <div class="empresa">${item.instituicao}</div>
             <div class="periodo">${item.periodo}</div>
         `;
@@ -290,14 +434,14 @@ function carregarProjetos() {
         div.target = '_blank';
         div.innerHTML = `
             <div class="projeto-thumb">
-                <img src="${proj.imagem}" alt="Captura do projeto ${proj.titulo}" loading="lazy">
+                <img src="${proj.imagem}" alt="Captura do projeto ${L(proj.titulo)}" loading="lazy">
                 <span class="projeto-thumb-tag">${proj.tag}</span>
             </div>
             <div class="projeto-body">
                 <div class="projeto-numero">#${proj.id}</div>
-                <h3>${proj.titulo}</h3>
-                <p>${proj.descricao}</p>
-                <span class="projeto-link">Ver Projeto →</span>
+                <h3>${L(proj.titulo)}</h3>
+                <p>${L(proj.descricao)}</p>
+                <span class="projeto-link">${t('projeto_ver')}</span>
             </div>
         `;
         container.appendChild(div);
@@ -316,7 +460,6 @@ function configurarFormulario() {
     if (!form) return;
 
     const botao = form.querySelector('.btn-enviar');
-    const textoOriginalBotao = botao ? botao.textContent : '';
 
     form.addEventListener('submit', function (e) {
         e.preventDefault();
@@ -328,13 +471,13 @@ function configurarFormulario() {
 
         if (!nome || !email || !assunto || !mensagem) {
             feedback.className = 'feedback erro';
-            feedback.textContent = 'Por favor, preencha todos os campos!';
+            feedback.textContent = t('form_erro_campos');
             return;
         }
 
         if (botao) {
             botao.disabled = true;
-            botao.textContent = 'A enviar...';
+            botao.textContent = t('form_enviando');
         }
 
         const dados = new FormData();
@@ -350,17 +493,17 @@ function configurarFormulario() {
         })
             .then(() => {
                 feedback.className = 'feedback sucesso';
-                feedback.textContent = `Mensagem enviada com sucesso, ${nome}! Entrarei em contacto em breve.`;
+                feedback.textContent = t('form_sucesso').replace('{nome}', nome);
                 form.reset();
             })
             .catch(() => {
                 feedback.className = 'feedback erro';
-                feedback.textContent = 'Não foi possível enviar agora. Tenta novamente ou escreve para elisamanueljob@gmail.com.';
+                feedback.textContent = t('form_erro_envio');
             })
             .finally(() => {
                 if (botao) {
                     botao.disabled = false;
-                    botao.textContent = textoOriginalBotao;
+                    botao.textContent = t('form_btn_enviar');
                 }
             });
     });
@@ -391,7 +534,24 @@ function iniciarScrollReveal() {
 }
 
 // ============================================
-// 8. INICIALIZAR TUDO
+// 8. RECARREGAR CONTEÚDO DINÂMICO QUANDO O IDIOMA MUDA
+// ============================================
+function recarregarConteudoDinamico() {
+    carregarCompetencias();
+    carregarExperiencias();
+    carregarFormacao();
+    carregarProjetos();
+    atualizarTextoTema();
+    iniciarScrollReveal(); // reobserva os novos elementos gerados (experiência/formação/projetos)
+
+    const botao = document.querySelector('#contactoForm .btn-enviar');
+    if (botao && !botao.disabled) botao.textContent = t('form_btn_enviar');
+}
+
+document.addEventListener('idiomaAlterado', recarregarConteudoDinamico);
+
+// ============================================
+// 9. INICIALIZAR TUDO
 // ============================================
 document.addEventListener('DOMContentLoaded', function() {
     initTheme();

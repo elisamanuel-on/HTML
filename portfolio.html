@@ -16,41 +16,50 @@
         <div class="container">
             <div class="header-content">
                 <nav>
-                    <a href="index.html">Perfil</a>
-                    <a href="portfolio.html" class="active">Portfólio</a>
-                    <a href="terminal.html">Terminal</a>
-                    <a href="contacto.html">Contacto</a>
+                    <a href="index.html" data-i18n="nav_perfil">Perfil</a>
+                    <a href="portfolio.html" class="active" data-i18n="nav_portfolio">Portfólio</a>
+                    <a href="terminal.html" data-i18n="nav_terminal">Terminal</a>
+                    <a href="contacto.html" data-i18n="nav_contacto">Contacto</a>
                 </nav>
-                <button id="toggleTheme" class="btn-theme" aria-label="Alternar tema">
-                    <span class="theme-icon"> </span>
-                    <span class="theme-text">Dark</span>
-                </button>
+                <div class="controlos-topo">
+                    <div class="lang-switcher" role="group" aria-label="Idioma / Language">
+                        <button class="lang-btn" data-lang="pt">PT</button>
+                        <button class="lang-btn" data-lang="en">EN</button>
+                        <button class="lang-btn" data-lang="es">ES</button>
+                        <button class="lang-btn" data-lang="fr">FR</button>
+                    </div>
+                    <button id="toggleTheme" class="btn-theme" aria-label="Alternar tema">
+                        <span class="theme-icon"> </span>
+                        <span class="theme-text">Dark</span>
+                    </button>
+                </div>
             </div>
         </div>
     </header>
 
     <main class="container">
         <section class="portfolio">
-            <h1>MEUS PROJETOS</h1>
-            <p class="subtitle">Clique num projeto para ver o código-fonte e demonstração</p>
+            <h1 data-i18n="portfolio_titulo">MEUS PROJETOS</h1>
+            <p class="subtitle" data-i18n="portfolio_subtitulo">Clique num projeto para ver o código-fonte e demonstração</p>
 
             <div class="projetos-grid" id="projetosContainer">
                 <!-- Gerado pelo JavaScript -->
             </div>
 
             <div class="projetos-footer">
-                <p>Todos os projetos foram desenvolvidos durante a formação em <strong>Programação Web (Client-Side)</strong></p>
+                <p data-i18n="portfolio_footer">Todos os projetos foram desenvolvidos durante a formação em <strong>Programação Web (Client-Side)</strong></p>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>Elisama Manuel - Tecnologias e Programação de Sistemas de Informação</p>
+        <p>Elisama Manuel - <span data-i18n="footer_tagline">Tecnologias e Programação de Sistemas de Informação</span></p>
         <div class="voltar">
-            <a href="index.html">← Voltar ao Início</a>
+            <a href="index.html" data-i18n="voltar_inicio">← Voltar ao Início</a>
         </div>
     </footer>
 
+    <script src="i18n.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
