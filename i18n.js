@@ -240,6 +240,86 @@ const TRADUCOES = {
     }
 };
 
+/* ---------- Título e descrição de cada página (para SEO/partilha) ---------- */
+const PAGINAS = {
+    index: {
+        titulo: {
+            pt: 'Elisama Manuel | Portfólio Dev',
+            en: 'Elisama Manuel | Developer Portfolio',
+            es: 'Elisama Manuel | Portafolio de Desarrolladora',
+            fr: 'Elisama Manuel | Portfolio Développeuse'
+        },
+        descricao: {
+            pt: 'Elisama Manuel — Desenvolvedora em formação, especializada em Python, automação (RPA), análise de dados e desenvolvimento web. Veja os meus projetos e percurso.',
+            en: 'Elisama Manuel — Developer in training, specializing in Python, process automation (RPA), data analysis and web development. See my projects and career path.',
+            es: 'Elisama Manuel — Desarrolladora en formación, especializada en Python, automatización de procesos (RPA), análisis de datos y desarrollo web. Descubre mis proyectos y trayectoria.',
+            fr: "Elisama Manuel — Développeuse en formation, spécialisée en Python, automatisation des processus (RPA), analyse de données et développement web. Découvrez mes projets et mon parcours."
+        }
+    },
+    portfolio: {
+        titulo: {
+            pt: 'Elisama | Portfólio',
+            en: 'Elisama | Portfolio',
+            es: 'Elisama | Portafolio',
+            fr: 'Elisama | Portfolio'
+        },
+        descricao: {
+            pt: 'Projetos práticos de Elisama Manuel em JavaScript, HTML e CSS — desenvolvidos durante a formação em Programação Web.',
+            en: 'Hands-on projects by Elisama Manuel in JavaScript, HTML and CSS — built during Web Programming training.',
+            es: 'Proyectos prácticos de Elisama Manuel en JavaScript, HTML y CSS — desarrollados durante la formación en Programación Web.',
+            fr: "Projets pratiques d'Elisama Manuel en JavaScript, HTML et CSS — développés pendant la formation en Programmation Web."
+        }
+    },
+    contacto: {
+        titulo: {
+            pt: 'Elisama | Contacto',
+            en: 'Elisama | Contact',
+            es: 'Elisama | Contacto',
+            fr: 'Elisama | Contact'
+        },
+        descricao: {
+            pt: 'Entre em contacto com Elisama Manuel para oportunidades profissionais em desenvolvimento web, Python e automação.',
+            en: 'Get in touch with Elisama Manuel about professional opportunities in web development, Python and automation.',
+            es: 'Ponte en contacto con Elisama Manuel para oportunidades profesionales en desarrollo web, Python y automatización.',
+            fr: "Contactez Elisama Manuel pour des opportunités professionnelles en développement web, Python et automatisation."
+        }
+    },
+    terminal: {
+        titulo: {
+            pt: 'Elisama | Terminal',
+            en: 'Elisama | Terminal',
+            es: 'Elisama | Terminal',
+            fr: 'Elisama | Terminal'
+        },
+        descricao: {
+            pt: "Terminal interativo do portfólio de Elisama Manuel — escreve 'help' para explorar.",
+            en: "Interactive terminal from Elisama Manuel's portfolio — type 'help' to explore.",
+            es: "Terminal interactivo del portafolio de Elisama Manuel — escribe 'help' para explorar.",
+            fr: "Terminal interactif du portfolio d'Elisama Manuel — tapez 'help' pour explorer."
+        }
+    }
+};
+
+function atualizarMetaPagina() {
+    const pagina = document.body.dataset.pagina;
+    const dados = PAGINAS[pagina];
+    if (!dados) return;
+
+    const titulo = L(dados.titulo);
+    const descricao = L(dados.descricao);
+
+    document.title = titulo;
+
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) metaDesc.setAttribute('content', descricao);
+
+    const ogTitulo = document.querySelector('meta[property="og:title"]');
+    if (ogTitulo) ogTitulo.setAttribute('content', titulo);
+
+    const ogDescricao = document.querySelector('meta[property="og:description"]');
+    if (ogDescricao) ogDescricao.setAttribute('content', descricao);
+}
+
 /* ---------- Estado ---------- */
 let idiomaAtual = detetarIdioma();
 
@@ -274,6 +354,7 @@ function aplicarTraducoes() {
         el.placeholder = t(el.getAttribute('data-i18n-placeholder'));
     });
 
+    atualizarMetaPagina();
     atualizarBotoesIdioma();
     document.dispatchEvent(new CustomEvent('idiomaAlterado', { detail: idiomaAtual }));
 }

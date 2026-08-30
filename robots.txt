@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://elisamanuel-on.github.io/HTML/sitemap.xml
