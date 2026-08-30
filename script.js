@@ -307,12 +307,18 @@ function carregarProjetos() {
 // ============================================
 // 6. FUNÇÃO PARA FORMULÁRIO DE CONTACTO
 // ============================================
+// URL da tua Google Apps Script (envia diretamente para o teu Gmail)
+const ENDPOINT_CONTACTO = 'https://script.google.com/macros/s/AKfycbzU4jTMhs1rTK_YFIyQLqb0Nx59TZDRwHQRbk-Dc3pU2vOEfGWT-slohAxcQnPinAk6/exec';
+
 function configurarFormulario() {
     const form = document.getElementById('contactoForm');
     const feedback = document.getElementById('feedback');
     if (!form) return;
 
-    form.addEventListener('submit', function(e) {
+    const botao = form.querySelector('.btn-enviar');
+    const textoOriginalBotao = botao ? botao.textContent : '';
+
+    form.addEventListener('submit', function (e) {
         e.preventDefault();
 
         const nome = document.getElementById('nome').value.trim();
@@ -326,16 +332,37 @@ function configurarFormulario() {
             return;
         }
 
-        // Sem backend próprio: abre o cliente de email do visitante já preenchido,
-        // para a mensagem chegar mesmo (em vez de simular um envio que não vai a lado nenhum).
-        const corpo = `Nome: ${nome}\nEmail: ${email}\n\n${mensagem}`;
-        const mailtoUrl = `mailto:elisamanueljob@gmail.com?subject=${encodeURIComponent(assunto)}&body=${encodeURIComponent(corpo)}`;
+        if (botao) {
+            botao.disabled = true;
+            botao.textContent = 'A enviar...';
+        }
 
-        feedback.className = 'feedback sucesso';
-        feedback.textContent = `A abrir o teu programa de email para enviares a mensagem, ${nome}...`;
+        const dados = new FormData();
+        dados.append('nome', nome);
+        dados.append('email', email);
+        dados.append('assunto', assunto);
+        dados.append('mensagem', mensagem);
 
-        window.location.href = mailtoUrl;
-        this.reset();
+        fetch(ENDPOINT_CONTACTO, {
+            method: 'POST',
+            body: dados,
+            mode: 'no-cors' // o Apps Script não devolve CORS; assumimos sucesso se não houver erro de rede
+        })
+            .then(() => {
+                feedback.className = 'feedback sucesso';
+                feedback.textContent = `Mensagem enviada com sucesso, ${nome}! Entrarei em contacto em breve.`;
+                form.reset();
+            })
+            .catch(() => {
+                feedback.className = 'feedback erro';
+                feedback.textContent = 'Não foi possível enviar agora. Tenta novamente ou escreve para elisamanueljob@gmail.com.';
+            })
+            .finally(() => {
+                if (botao) {
+                    botao.disabled = false;
+                    botao.textContent = textoOriginalBotao;
+                }
+            });
     });
 }
 
