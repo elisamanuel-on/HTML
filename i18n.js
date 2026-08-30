@@ -62,7 +62,9 @@ const TRADUCOES = {
         card_ver_perfil: 'Ver Perfil',
         card_ver_repositorios: 'Ver Repositórios',
 
-        term_hint_prefixo: 'experimenta:'
+        term_hint_prefixo: 'experimenta:',
+        term_help_titulo: 'Comandos disponíveis:',
+        term_help_perfis: 'abrir perfis'
     },
     en: {
         nav_perfil: 'Profile',
@@ -120,7 +122,9 @@ const TRADUCOES = {
         card_ver_perfil: 'View Profile',
         card_ver_repositorios: 'View Repositories',
 
-        term_hint_prefixo: 'try:'
+        term_hint_prefixo: 'try:',
+        term_help_titulo: 'Available commands:',
+        term_help_perfis: 'open profiles'
     },
     es: {
         nav_perfil: 'Perfil',
@@ -178,7 +182,9 @@ const TRADUCOES = {
         card_ver_perfil: 'Ver Perfil',
         card_ver_repositorios: 'Ver Repositorios',
 
-        term_hint_prefixo: 'prueba:'
+        term_hint_prefixo: 'prueba:',
+        term_help_titulo: 'Comandos disponibles:',
+        term_help_perfis: 'abrir perfiles'
     },
     fr: {
         nav_perfil: 'Profil',
@@ -236,7 +242,9 @@ const TRADUCOES = {
         card_ver_perfil: 'Voir le Profil',
         card_ver_repositorios: 'Voir les Dépôts',
 
-        term_hint_prefixo: 'essaie :'
+        term_hint_prefixo: 'essaie :',
+        term_help_titulo: 'Commandes disponibles :',
+        term_help_perfis: 'ouvrir les profils'
     }
 };
 
