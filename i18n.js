@@ -34,7 +34,7 @@ const TRADUCOES = {
 
         portfolio_titulo: 'MEUS PROJETOS',
         portfolio_subtitulo: 'Clique num projeto para ver o código-fonte e demonstração',
-        portfolio_footer: 'Todos os projetos foram desenvolvidos durante a formação em <strong>Programação Web (Client-Side)</strong>',
+        portfolio_footer: 'Todos os projetos foram desenvolvidos durante a formação em <strong>Programação Web (Client-Side)</strong> e por iniciativa própria',
         projeto_ver: 'Ver Projeto →',
 
         contacto_titulo: 'CONTACTO',
@@ -94,7 +94,7 @@ const TRADUCOES = {
 
         portfolio_titulo: 'MY PROJECTS',
         portfolio_subtitulo: 'Click a project to see the source code and live demo',
-        portfolio_footer: 'All projects were built during Web Programming (Client-Side) training',
+        portfolio_footer: 'All projects were built during <strong>Web Programming (Client-Side)</strong> training, and on my own initiative',
         projeto_ver: 'View Project →',
 
         contacto_titulo: 'CONTACT',
@@ -154,7 +154,7 @@ const TRADUCOES = {
 
         portfolio_titulo: 'MIS PROYECTOS',
         portfolio_subtitulo: 'Haz clic en un proyecto para ver el código fuente y la demo',
-        portfolio_footer: 'Todos los proyectos fueron desarrollados durante la formación en <strong>Programación Web (Client-Side)</strong>',
+        portfolio_footer: 'Todos los proyectos fueron desarrollados durante la formación en <strong>Programación Web (Client-Side)</strong> y por iniciativa propia',
         projeto_ver: 'Ver Proyecto →',
 
         contacto_titulo: 'CONTACTO',
@@ -214,7 +214,7 @@ const TRADUCOES = {
 
         portfolio_titulo: 'MES PROJETS',
         portfolio_subtitulo: 'Cliquez sur un projet pour voir le code source et la démo',
-        portfolio_footer: 'Tous les projets ont été développés pendant la formation en <strong>Programmation Web (Client-Side)</strong>',
+        portfolio_footer: 'Tous les projets ont été développés pendant la formation en <strong>Programmation Web (Client-Side)</strong> et de ma propre initiative',
         projeto_ver: 'Voir le Projet →',
 
         contacto_titulo: 'CONTACT',
