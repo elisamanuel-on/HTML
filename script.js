@@ -365,7 +365,7 @@ const projetos = [
         },
         tag: 'FastAPI',
         url: 'https://controlo-de-gastos.onrender.com',
-        imagem: 'imagens/projetos/020-controlo-gastos.jpg'
+        imagem: 'imagens/020-controlo-gastos.jpg'
     },
     {
         id: '021',
@@ -383,7 +383,7 @@ const projetos = [
         },
         tag: 'FastAPI',
         url: 'https://delivery-eventos.onrender.com',
-        imagem: 'imagens/projetos/021-delivery-eventos.jpg'
+        imagem: 'imagens/021-delivery-eventos.jpg'
     }
 ];
 
