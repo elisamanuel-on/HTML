@@ -1,6 +1,6 @@
 # Portfólio — Elisama Manuel
 
-Portfólio pessoal de desenvolvedora, com identidade de programadora (terminal interativo, boot animado), 11 projetos práticos e um formulário de contacto ligado diretamente ao Gmail.
+Portfólio pessoal de desenvolvedora, com identidade de programadora (terminal interativo, boot animado), 12 projetos práticos e um formulário de contacto ligado diretamente ao Gmail.
 
 **Site ao vivo:** https://elisamanuel-on.github.io/HTML/
 **LinkedIn:** https://www.linkedin.com/in/elisama-manuel-49025117a/
@@ -19,7 +19,7 @@ Portfólio pessoal de desenvolvedora, com identidade de programadora (terminal i
 
 ```
 ├── index.html          → página de perfil (hero, experiência, formação)
-├── portfolio.html       → grelha com os 11 projetos
+├── portfolio.html       → grelha com os 12 projetos
 ├── contacto.html        → formulário de contacto
 ├── terminal.html        → terminal interativo
 ├── style.css             → tema visual (verde/âmbar, inspirado em terminal clássico)
@@ -33,10 +33,11 @@ Portfólio pessoal de desenvolvedora, com identidade de programadora (terminal i
 
 ## Projetos em destaque
 
-Os 11 projetos cobrem desde exercícios de lógica em JavaScript/HTML/CSS até uma aplicação full-stack:
+Os 12 projetos cobrem desde exercícios de lógica em JavaScript/HTML/CSS até aplicações full-stack com backend próprio:
 
 - 10 exercícios práticos (calculadoras, jogos, formulários, responsividade) — código incluído neste mesmo repositório, em `projetos/`
-- **[Controlo de Gastos](https://github.com/elisamanuel-on/controlo-de-gastos)** — aplicação full-stack separada (API em FastAPI + SQLite), com testes automáticos e deployment contínuo, publicada em [controlo-de-gastos.onrender.com](https://controlo-de-gastos.onrender.com)
+- **[Controlo de Gastos](https://github.com/elisamanuel-on/controlo-de-gastos)** — aplicação full-stack (API em FastAPI + SQLite), com testes automáticos e deployment contínuo, publicada em [controlo-de-gastos.onrender.com](https://controlo-de-gastos.onrender.com)
+- **[Delivery Orientado a Eventos](https://github.com/elisamanuel-on/delivery-eventos)** — simulação de delivery com arquitetura orientada a eventos (Pagamento → Cozinha → Entrega) e acompanhamento em tempo real via WebSocket, publicada em [delivery-eventos.onrender.com](https://delivery-eventos.onrender.com)
 
 ## Como correr localmente
 

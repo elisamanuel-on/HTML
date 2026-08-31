@@ -366,6 +366,24 @@ const projetos = [
         tag: 'FastAPI',
         url: 'https://controlo-de-gastos.onrender.com',
         imagem: 'imagens/projetos/020-controlo-gastos.jpg'
+    },
+    {
+        id: '021',
+        titulo: {
+            pt: 'Delivery Orientado a Eventos',
+            en: 'Event-Driven Delivery',
+            es: 'Delivery Orientado a Eventos',
+            fr: 'Livraison Orientée Événements'
+        },
+        descricao: {
+            pt: 'Simulação de delivery com arquitetura orientada a eventos, WebSocket em tempo real e testes automáticos',
+            en: 'Delivery simulation with event-driven architecture, real-time WebSocket updates and automated tests',
+            es: 'Simulación de delivery con arquitectura orientada a eventos, WebSocket en tiempo real y pruebas automáticas',
+            fr: 'Simulation de livraison avec architecture événementielle, WebSocket en temps réel et tests automatisés'
+        },
+        tag: 'FastAPI',
+        url: 'https://delivery-eventos.onrender.com',
+        imagem: 'imagens/projetos/021-delivery-eventos.jpg'
     }
 ];
 
