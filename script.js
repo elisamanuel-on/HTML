@@ -353,6 +353,19 @@ const projetos = [
         tag: 'CSS',
         caminho: 'projetos/EXERCICIO019 - Breakpoints/',
         imagem: 'imagens/projetos/019-breakpoints.jpg'
+    },
+    {
+        id: '020',
+        titulo: { pt: 'Controlo de Gastos', en: 'Expense Tracker', es: 'Control de Gastos', fr: 'Suivi des Dépenses' },
+        descricao: {
+            pt: 'App full-stack com API FastAPI, SQLite, testes automáticos e deployment contínuo',
+            en: 'Full-stack app with a FastAPI backend, SQLite, automated tests and continuous deployment',
+            es: 'App full-stack con API FastAPI, SQLite, pruebas automáticas y deployment continuo',
+            fr: 'Application full-stack avec API FastAPI, SQLite, tests automatisés et déploiement continu'
+        },
+        tag: 'FastAPI',
+        url: 'https://controlo-de-gastos.onrender.com',
+        imagem: 'imagens/projetos/020-controlo-gastos.jpg'
     }
 ];
 
@@ -430,7 +443,7 @@ function carregarProjetos() {
     projetos.forEach(proj => {
         const div = document.createElement('a');
         div.className = 'projeto-card reveal';
-        div.href = proj.caminho + 'index.html';
+        div.href = proj.url || (proj.caminho + 'index.html');
         div.target = '_blank';
         div.innerHTML = `
             <div class="projeto-thumb">

@@ -52,10 +52,10 @@ const BOOT_DADOS = [
     {
         comando: { pt: 'ls projetos/', en: 'ls projects/', es: 'ls proyectos/', fr: 'ls projets/' },
         saida: {
-            pt: ['10 projetos encontrados. A carregar portfólio...'],
-            en: ['10 projects found. Loading portfolio...'],
-            es: ['10 proyectos encontrados. Cargando portafolio...'],
-            fr: ['10 projets trouvés. Chargement du portfolio...']
+            pt: ['11 projetos encontrados. A carregar portfólio...'],
+            en: ['11 projects found. Loading portfolio...'],
+            es: ['11 proyectos encontrados. Cargando portafolio...'],
+            fr: ['11 projets trouvés. Chargement du portfolio...']
         }
     },
     {
@@ -173,10 +173,10 @@ const TEXTOS_TERMINAL = {
         fr: '7 expériences professionnelles — voir le profil complet sur'
     },
     projetos: {
-        pt: '10 projetos disponíveis →',
-        en: '10 projects available →',
-        es: '10 proyectos disponibles →',
-        fr: '10 projets disponibles →'
+        pt: '11 projetos disponíveis →',
+        en: '11 projects available →',
+        es: '11 proyectos disponibles →',
+        fr: '11 projets disponibles →'
     },
     contacto: {
         pt: ['email: elisamanueljob@gmail.com', 'tel:&nbsp;&nbsp;&nbsp;+351 913 516 395'],
