@@ -2,7 +2,7 @@
 
 Portfólio pessoal de desenvolvedora, com identidade de programadora (terminal interativo, boot animado), 12 projetos práticos e um formulário de contacto ligado diretamente ao Gmail.
 
-**Site ao vivo:** https://elisamanuel-on.github.io/HTML/
+**Site ao vivo:** https://elisamanuel-on.github.io/
 **LinkedIn:** https://www.linkedin.com/in/elisama-manuel-49025117a/
 **GitHub:** https://github.com/elisamanuel-on
 
