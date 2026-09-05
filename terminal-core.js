@@ -34,10 +34,10 @@ const BOOT_DADOS = [
     {
         comando: { pt: 'whoami', en: 'whoami', es: 'whoami', fr: 'whoami' },
         saida: {
-            pt: ['Elisama Manuel — Desenvolvedora em Formação'],
-            en: ['Elisama Manuel — Developer in Training'],
-            es: ['Elisama Manuel — Desarrolladora en Formación'],
-            fr: ['Elisama Manuel — Développeuse en Formation']
+            pt: ['Elisama Manuel — Desenvolvedora Web Júnior (Full-Stack)'],
+            en: ['Elisama Manuel — Junior Full-Stack Web Developer'],
+            es: ['Elisama Manuel — Desarrolladora Web Júnior (Full-Stack)'],
+            fr: ['Elisama Manuel — Développeuse Web Junior (Full-Stack)']
         }
     },
     {
@@ -155,10 +155,10 @@ const AJUDA_LISTA = [
 
 const TEXTOS_TERMINAL = {
     sobre: {
-        pt: ['Elisama Manuel — Desenvolvedora em Formação.', 'Transição de Finanças &amp; Contabilidade para Tecnologia.', 'Foco em Python, Automação (RPA), Análise de Dados e Web.'],
-        en: ['Elisama Manuel — Developer in Training.', 'Transitioning from Finance &amp; Accounting into Tech.', 'Focused on Python, Automation (RPA), Data Analysis and Web.'],
-        es: ['Elisama Manuel — Desarrolladora en Formación.', 'Transición de Finanzas y Contabilidad hacia la Tecnología.', 'Enfocada en Python, Automatización (RPA), Análisis de Datos y Web.'],
-        fr: ['Elisama Manuel — Développeuse en Formation.', 'Transition de la Finance &amp; Comptabilité vers la Technologie.', 'Axée sur Python, Automatisation (RPA), Analyse de Données et Web.']
+        pt: ['Elisama Manuel — Desenvolvedora Web Júnior (Full-Stack).', 'Transição de Finanças &amp; Contabilidade para Tecnologia.', 'Foco em Python, Automação (RPA), Análise de Dados e Web.'],
+        en: ['Elisama Manuel — Junior Full-Stack Web Developer.', 'Transitioning from Finance &amp; Accounting into Tech.', 'Focused on Python, Automation (RPA), Data Analysis and Web.'],
+        es: ['Elisama Manuel — Desarrolladora Web Júnior (Full-Stack).', 'Transición de Finanzas y Contabilidad hacia la Tecnología.', 'Enfocada en Python, Automatización (RPA), Análisis de Datos y Web.'],
+        fr: ['Elisama Manuel — Développeuse Web Junior (Full-Stack).', 'Transition de la Finance &amp; Comptabilité vers la Technologie.', 'Axée sur Python, Automatisation (RPA), Analyse de Données et Web.']
     },
     skills: {
         pt: ['Python · RPA · Pandas · FastAPI · Flask · Dash', 'SQLite · MongoDB · Git · HTML/CSS · JavaScript · Machine Learning'],
